@@ -2,16 +2,15 @@ import React from "react";
 import Task from "../../Task";
 import PropTypes from "prop-types";
 
-const TasksList = ({ tasks, handleTaskStatusChange, handleTTaskDelete})=>{
-  const sortedList = tasks.slice().sort((a, b) => a.done - b.done);
-  return(
+const TasksList = ({ tasks, onChange, onDelete})=>{
+   return(
     <ul className="list">
-      {sortedList.map(task => (
+      {tasks.map(task => (
         <Task
         key={task.id}
         {...task}
-        onChange={handleTaskStatusChange}
-        onDelete={handleTTaskDelete}
+        onChange={onChange}
+        onDelete={onDelete}
         />
       ))}
     </ul>
